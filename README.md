@@ -1,5 +1,5 @@
 # Networking_pack
-Networking toolkit written in c++
+Networking toolkit written in C++ (only for mac)
 
 Requires:
 1. Ngrok
