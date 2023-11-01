@@ -12,13 +12,14 @@ void menu()
     std::cout << "\n";
     std::cout << "-------------------------------------------------------|\n";
     std::cout << "0. Exit                                                |\n";
-    std::cout << "1. Requiries                                           |\n";
-    std::cout << "2. Ping IPv4                                           |\n";
-    std::cout << "3. Set up port forwarding service(Ngrok)               |\n";
-    std::cout << "4. Nmap scans                                          |\n";
-    std::cout << "5. Arp poison(no proxychains)                          |\n";
-    std::cout << "6. Open Wireshark with root perms                      |\n";
-    std::cout << "7. Open fishing tool(zphisher)                         |\n";
+    std::cout << "1. Install instructions                                |\n";
+    std::cout << "2. Requiries                                           |\n";
+    std::cout << "3. Ping IPv4                                           |\n";
+    std::cout << "4. Set up port forwarding service(Ngrok)               |\n";
+    std::cout << "5. Nmap scans                                          |\n";
+    std::cout << "6. Arp poison                                          |\n";
+    std::cout << "7. Open Wireshark with root perms                      |\n";
+    std::cout << "8. Open fishing tool(zphisher)                         |\n";
     std::cout << "------------------------------------------------------/\n";
     std::cin >> menu_option;
 
@@ -28,7 +29,29 @@ void menu()
         exit(0);
     }
 
-    if (menu_option == 1)
+    else if (menu_option == 1)
+    {
+        system("clear");
+        std::cout << "How to install Brew: \n";
+        std::cout << "Git clone https://github.com/Homebrew/brew.git\n";
+        std::cout << "\n";
+        std::cout << "Install Ngrok: \n";
+        std::cout << "brew install ngrok\n";
+        std::cout << "You do have to make a ngrok account on their website and then enter your API token in the config file\n";
+        std::cout << "\n";
+        std::cout << "Install Nmap\n";
+        std::cout << "brew install nmap\n";
+        std::cout << "\n";
+        std::cout << "Insrall Ettercap\n";
+        std::cout << "\n";
+        std::cout << "Install Wireshark\n";
+        std::cout << "Install from Wireshark website\n";
+        std::cout << "\n";
+        std::cout << "Install Zphisher\n";
+        std::cout << "brew install zphisher\n";
+    }
+
+    else if (menu_option == 2)
     {
         std::cout << "------------\n";
         std::cout << "1. Ngrok\n";
@@ -39,7 +62,7 @@ void menu()
         std::cout << "------------\n";
     }
 
-    else if (menu_option == 2)
+    else if (menu_option == 3)
     {
         system("clear");
         char ip_address[100];
@@ -52,7 +75,7 @@ void menu()
         int return_code = system(command);
     }
 
-    else if (menu_option == 3)
+    else if (menu_option == 4)
     {
         system("clear");
 
@@ -66,7 +89,7 @@ void menu()
 
         int return_code = system(command);
     }
-    else if (menu_option == 4)
+    else if (menu_option == 5)
     {
 
         system("clear");
@@ -77,7 +100,7 @@ void menu()
         snprintf(command, sizeof(command), "sudo  %s", nmap_options1);
         int return_code = system(command);
     }
-    else if (menu_option == 5)
+    else if (menu_option == 6)
     {
 
         system("clear");
@@ -93,12 +116,13 @@ void menu()
         snprintf(command, sizeof(command), "sudo ettercap -T -S -i en0 -M arp:remote /%s// /%s//", arppoison1, arppoison2);
         int return_code = system(command);
     }
-    else if (menu_option == 6)
+    else if (menu_option == 7)
     {
         system("clear");
         system("sudo open /Applications/Wireshark.app");
     }
-    else if (menu_option == 7) {
+    else if (menu_option == 8)
+    {
         system("clear");
         system("./zphisher.sh");
     }
